@@ -1,0 +1,55 @@
+version: '3.7'
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dir
+      MYSQL_USER: dir
+      MYSQL_PASSWORD: dir
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  eureka:
+    image: services/dir_music_eureka
+    ports:
+      - 8761:8761
+
+  spring_cloud_gateway:
+    ports:
+      - 8080:8080
+    depends_on:
+      - eureka
+    image: services/dir_music_gateway
+    external_links:
+      - eureka:eureka
+
+  dir_authentication:
+    depends_on:
+      - mysql
+      - eureka
+    image: services/dir_music_authentication-service
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+    external_links:
+      - mysql:mysql
+      - eureka:eureka
+
+  dir_song_streaming:
+    depends_on:
+      - mysql
+      - eureka
+      - dir_authentication
+    image: services/song-streaming-microservice
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+    external_links:
+      - mysql:mysql
+      - eureka:eureka
+      - dir_authentication:dir_authentication
