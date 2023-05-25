@@ -1,6 +1,6 @@
-[submodule "services/dir_music_authentication-service"]
-	path = services/dir_music_authentication-service
-	url = git@github.com:AlfaSquaD/dir_music_authentication-service.git
+[submodule "services/dir_music_authentication_service"]
+	path = services/dir_music_authentication_service
+	url = git@github.com:AlfaSquaD/dir_music_authentication_service.git
 [submodule "services/dir_music_eureka"]
 	path = services/dir_music_eureka
 	url = git@github.com:AlfaSquaD/dir_music_eureka.git

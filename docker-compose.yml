@@ -30,7 +30,7 @@ services:
     depends_on:
       - mysql
       - eureka
-    image: services/dir_music_authentication-service
+    image: services/dir_music_authentication_service
     deploy:
       replicas: 2
       restart_policy:
