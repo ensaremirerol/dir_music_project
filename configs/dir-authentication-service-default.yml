@@ -1,0 +1,32 @@
+spring:
+    application:
+        name: dir-authentication-service
+    datasource:
+        password: root
+        username: root
+        url: jdbc:mysql://mysql:3306/auth
+    jpa:
+        hibernate:
+            ddl-auto: update
+    security:
+        user:
+            password: dir
+            name: dir
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://eureka:8761/eureka/
+        register-with-eureka: true
+        fetch-registry: true
+
+authentication-service:
+    jwtAccessTokenSecret: 'secret'
+    jwtRefreshTokenSecret: 'secret2'
+    jwtIssuer: 'dir'
+    jwtAudience: 'dir'
+    # Password strength should be between 4 and 31
+    passwordHashStrength: 10
+
+server:
+    port: 8080

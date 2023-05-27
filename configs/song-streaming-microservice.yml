@@ -1,0 +1,29 @@
+app:
+    music:
+        storage:
+            path: D:/microservice_musics
+
+server:
+    port: 8080
+
+spring:
+    application:
+        name: dir-stream-song-service
+    datasource:
+        password: root
+        username: root
+        url: jdbc:mysql://mysql:3306/songs
+    jpa:
+        hibernate:
+            ddl-auto: update
+    security:
+        user:
+            password: dir
+            name: dir
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://eureka:8761/eureka/
+        register-with-eureka: true
+        fetch-registry: true

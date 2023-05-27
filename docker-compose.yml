@@ -6,11 +6,14 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: dir
       MYSQL_USER: dir
       MYSQL_PASSWORD: dir
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - ./mysql:/var/lib/mysql
+      - ./docker/provision/mysql/init:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
 
   eureka:
     image: services/dir_music_eureka
@@ -38,6 +41,7 @@ services:
     external_links:
       - mysql:mysql
       - eureka:eureka
+      - configserver:configserver
 
   dir_song_streaming:
     depends_on:
@@ -52,4 +56,13 @@ services:
     external_links:
       - mysql:mysql
       - eureka:eureka
-      - dir_authentication:dir_authentication
+      - configserver:configserver
+
+  configserver:
+    depends_on:
+      - eureka
+    image: services/dir_music_config_server
+    external_links:
+      - eureka:eureka
+    volumes:
+      - ./configs:/configs
