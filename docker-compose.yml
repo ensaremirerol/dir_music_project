@@ -58,6 +58,21 @@ services:
       - eureka:eureka
       - configserver:configserver
 
+  dir_user_service:
+    depends_on:
+      - mysql
+      - eureka
+      - dir_authentication
+    image: services/user_information
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+    external_links:
+      - mysql:mysql
+      - eureka:eureka
+      - configserver:configserver
+
   configserver:
     depends_on:
       - eureka

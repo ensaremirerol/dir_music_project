@@ -19,6 +19,8 @@ eureka:
             defaultZone: http://eureka:8761/eureka/
         register-with-eureka: true
         fetch-registry: true
+    instance:
+        prefer-ip-address: true
 
 authentication-service:
     jwtAccessTokenSecret: 'secret'
@@ -30,3 +32,4 @@ authentication-service:
 
 server:
     port: 8080
+
