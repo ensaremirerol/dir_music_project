@@ -3,6 +3,10 @@ version: '3.7'
 services:
   mysql:
     image: mysql:8.0
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -14,70 +18,188 @@ services:
       - ./docker/provision/mysql/init:/docker-entrypoint-initdb.d
     ports:
       - 3306:3306
+    networks:
+      - dir_music_network
 
   eureka:
     image: services/dir_music_eureka
+    healthcheck:
+      test: "curl --fail --silent localhost:8761/actuator/health | grep UP || exit 1"
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
     ports:
       - 8761:8761
+    networks:
+      - dir_music_network
 
   spring_cloud_gateway:
     ports:
       - 8080:8080
     depends_on:
-      - eureka
+      eureka:
+        condition: 'service_healthy'
     image: services/dir_music_gateway
     external_links:
       - eureka:eureka
+    networks:
+      - dir_music_network
 
   dir_authentication:
     depends_on:
-      - mysql
-      - eureka
+      mysql:
+        condition: 'service_healthy'
+      eureka:
+        condition: 'service_healthy'
+      configserver:
+        condition: 'service_healthy'
     image: services/dir_music_authentication_service
     deploy:
       replicas: 2
       restart_policy:
         condition: on-failure
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
     external_links:
       - mysql:mysql
       - eureka:eureka
       - configserver:configserver
+    networks:
+      - dir_music_network
 
   dir_song_streaming:
     depends_on:
-      - mysql
-      - eureka
-      - dir_authentication
+      mysql:
+        condition: 'service_healthy'
+      eureka:
+        condition: 'service_healthy'
+      configserver:
+        condition: 'service_healthy'
     image: services/song-streaming-microservice
     deploy:
       replicas: 2
       restart_policy:
         condition: on-failure
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
     external_links:
       - mysql:mysql
       - eureka:eureka
       - configserver:configserver
+    volumes:
+      - ./musics:/musics
+    networks:
+      - dir_music_network
 
   dir_user_service:
     depends_on:
-      - mysql
-      - eureka
-      - dir_authentication
+      mysql:
+        condition: 'service_healthy'
+      eureka:
+        condition: 'service_healthy'
+      configserver:
+        condition: 'service_healthy'
     image: services/user_information
     deploy:
       replicas: 2
       restart_policy:
         condition: on-failure
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
     external_links:
       - mysql:mysql
       - eureka:eureka
       - configserver:configserver
+    networks:
+      - dir_music_network
+  dir_metadata_service:
+    depends_on:
+      mysql:
+        condition: 'service_healthy'
+      eureka:
+        condition: 'service_healthy'
+      configserver:
+        condition: 'service_healthy'
+    image: services/dir_metadata_service
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    external_links:
+      - mysql:mysql
+      - eureka:eureka
+      - configserver:configserver
+    networks:
+      - dir_music_network
+
+  dir_cover_art_service:
+    depends_on:
+      mysql:
+        condition: 'service_healthy'
+      eureka:
+        condition: 'service_healthy'
+      configserver:
+        condition: 'service_healthy'
+    image: services/song-cover-art
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    external_links:
+      - mysql:mysql
+      - eureka:eureka
+      - configserver:configserver
+    volumes:
+      - ./cover_art:/cover_art
+    networks:
+      - dir_music_network
 
   configserver:
-    depends_on:
-      - eureka
     image: services/dir_music_config_server
-    external_links:
-      - eureka:eureka
+    healthcheck:
+      test: "curl --fail --silent localhost:8080/actuator/health | grep UP || exit 1"
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+    ports:
+      - 8081:8080
     volumes:
       - ./configs:/configs
+    networks:
+      - dir_music_network
+
+networks:
+  dir_music_network:
+    driver: bridge
+    external: true

@@ -18,5 +18,5 @@ restart:
 logs:
 	docker-compose logs -f
 
-pull-modules:
+pull:
 	git submodule update --recursive --remote

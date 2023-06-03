@@ -32,4 +32,3 @@ authentication-service:
 
 server:
     port: 8080
-

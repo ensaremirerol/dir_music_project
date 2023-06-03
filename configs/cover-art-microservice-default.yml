@@ -1,18 +1,19 @@
 app:
     music:
         storage:
-            path: /musics
-
-server:
-    port: 8080
+            path: /cover_art
 
 spring:
+    servlet:
+        multipart:
+            max-file-size: 50MB
+            max-request-size: 50MB
     application:
-        name: dir-stream-song-service
+        name: cover-art-microservice
     datasource:
         password: root
         username: root
-        url: jdbc:mysql://mysql:3306/songs
+        url: jdbc:mysql://mysql:3306/cover_art
     jpa:
         hibernate:
             ddl-auto: update
@@ -27,3 +28,8 @@ eureka:
             defaultZone: http://eureka:8761/eureka/
         register-with-eureka: true
         fetch-registry: true
+    instance:
+        prefer-ip-address: true
+
+server:
+    port: 0

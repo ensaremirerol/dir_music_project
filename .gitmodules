@@ -19,3 +19,9 @@
 [submodule "services/user_information"]
 	path = services/user_information
 	url = git@github.com:OmerVeliIlhan/user_information.git
+[submodule "services/dir_metadata_service"]
+	path = services/dir_metadata_service
+	url = git@github.com:AlfaSquaD/dir_metadata_service.git
+[submodule "services/song-cover-art"]
+	path = services/song-cover-art
+	url = git@github.com:berkanttelli/song-cover-art.git

@@ -1,27 +1,22 @@
-app:
-    music:
-        storage:
-            path: /musics
-
-server:
-    port: 8080
-
 spring:
     application:
-        name: dir-stream-song-service
+        name: dir-metadata-service
+    servlet:
+        multipart:
+            max-file-size: 100MB
+            max-request-size: 100MB
+
     datasource:
         password: root
         username: root
-        url: jdbc:mysql://mysql:3306/songs
+        url: jdbc:mysql://mysql:3306/metadata
     jpa:
         hibernate:
             ddl-auto: update
-    security:
-        user:
-            password: dir
-            name: dir
 
 eureka:
+    instance:
+        prefer-ip-address: true
     client:
         service-url:
             defaultZone: http://eureka:8761/eureka/
