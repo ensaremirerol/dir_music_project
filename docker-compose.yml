@@ -20,6 +20,24 @@ services:
       - 3306:3306
     networks:
       - dir_music_network
+  
+  mongodb:
+    image: mongo:7.0.0-rc2-jammy
+    healthcheck:
+      test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
+      timeout: 20s
+      retries: 10
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./mongodb:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - dir_music_network
+
 
   eureka:
     image: services/dir_music_eureka

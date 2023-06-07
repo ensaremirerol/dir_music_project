@@ -28,3 +28,9 @@
 [submodule "services/dir_music_bff"]
 	path = services/dir_music_bff
 	url = git@github.com:AlfaSquaD/dir_music_bff.git
+[submodule "services/dir_music_playlist_service"]
+	path = services/dir_music_playlist_service
+	url = git@github.com:AlfaSquaD/dir_music_playlist_service.git
+[submodule "services/playlist_service"]
+	path = services/playlist_service
+	url = git@github.com:AlfaSquaD/dir_music_playlist_service.git
