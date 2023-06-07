@@ -183,6 +183,32 @@ services:
       - ./cover_art:/cover_art
     networks:
       - dir_music_network
+  dir_bff:
+    depends_on:
+      mysql:
+        condition: 'service_healthy'
+      eureka:
+        condition: 'service_healthy'
+      configserver:
+        condition: 'service_healthy'
+    image: services/dir_music_bff
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    external_links:
+      - mysql:mysql
+      - eureka:eureka
+      - configserver:configserver
+    networks:
+      - dir_music_network
 
   configserver:
     image: services/dir_music_config_server

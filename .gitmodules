@@ -25,3 +25,6 @@
 [submodule "services/song-cover-art"]
 	path = services/song-cover-art
 	url = git@github.com:berkanttelli/song-cover-art.git
+[submodule "services/dir_music_bff"]
+	path = services/dir_music_bff
+	url = git@github.com:AlfaSquaD/dir_music_bff.git
