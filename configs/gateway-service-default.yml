@@ -1,0 +1,20 @@
+server:
+    port: 8080
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://eureka:8761/eureka/
+        register-with-eureka: true
+        fetch-registry: true
+
+spring:
+    cloud:
+        gateway:
+            routes:
+                - id: bff
+                  uri: lb://bff
+                  predicates:
+                      - Path=/bff/**
+                  filters:
+                      - StripPrefix=1

@@ -1,0 +1,17 @@
+FROM maven:3.8-openjdk-18-slim AS build-env
+
+ARG SRC_DIR
+
+WORKDIR /app
+
+COPY ${SRC_DIR}/.mvn/ .mvn
+COPY ${SRC_DIR}/mvnw ${SRC_DIR}/pom.xml ./
+COPY ${SRC_DIR}/src ./src
+
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:17-jdk-jammy AS runtime-env
+
+COPY --from=build-env /app/target/*.jar /app.jar
+
+ENTRYPOINT ["java","-jar","/app.jar"]

@@ -6,6 +6,12 @@ build:
 	done
 	docker-compose build --no-cache
 
+build-nodeps:
+	for service in $(SERVICES); do \
+		./scripts/build-nodeps.sh -p $$service -t $$service; \
+	done
+	docker-compose build
+
 up:
 	docker-compose up -d
 
