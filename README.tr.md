@@ -48,7 +48,7 @@ Eğer ki, yükleme dosyalarının `nodeps` versiyonunu kullanırsanız Java ve M
 
 Proje kök dizininde:
 
--   `build-win-deps.ps1` veya `build-win-nodeps.ps1` dosyalarından birini çalıştırın. Hangisini çalıştıracağınızı seçmek için [bu notu](#❗️-İsteğe-bağlı-gereksinimler-hakkında-not) okuyun.
+-   `build-win-deps.ps1` veya `build-win-nodeps.ps1` dosyalarından birini çalıştırın. Hangisini çalıştıracağınızı seçmek için [bu notu](https://github.com/AlfaSquaD/dir_music_project/blob/main/README.tr.md#%EF%B8%8F-i%CC%87ste%C4%9Fe-ba%C4%9Fl%C4%B1-gereksinimler-hakk%C4%B1nda-not) okuyun.
 
 -   `docker-compose up` komutunu çalıştırarak sunucuyu başlatın.
 
@@ -56,13 +56,13 @@ Proje kök dizininde:
 
 Proje kök dizininde:
 
--   `make build` veya `make build-nodeps` komutlarını çalıştırın. Hangisini çalıştıracağınızı seçmek için [bu notu](#❗️-İsteğe-bağlı-gereksinimler-hakkında-not) okuyun.
+-   `make build` veya `make build-nodeps` komutlarını çalıştırın. Hangisini çalıştıracağınızı seçmek için [bu notu](https://github.com/AlfaSquaD/dir_music_project/blob/main/README.tr.md#%EF%B8%8F-i%CC%87ste%C4%9Fe-ba%C4%9Fl%C4%B1-gereksinimler-hakk%C4%B1nda-not) okuyun.
 
 -   `docker-compose up` veya `make up` komutunu çalıştırarak sunucuyu başlatın.
 
 ### ⚙️ Ön Yüz:
 
-[İstemcinin](./clients/dir_music_client/) kök dizininde:
+İstemcinin kök dizininde `./clients/dir_music_client/`:
 
 -   `flutter pub get` komutunu çalıştırarak tüm bağımlılıkları indirin.
 

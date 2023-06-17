@@ -2,20 +2,6 @@
 
 [English](./README.md) | [Türkçe](./README.tr.md)
 
-## 📝 Table of Contents:
-
-[Description](#📜-Description:)
-
-[Requirements](#📦-Requirements:)
-
--   [Backend](#📋-Backend:)
--   [Frontend](#📋-Frontend:)
-
-[Build](#⚙️-Build:)
-
--   [Backend](#⚙️-Backend:)
--   [Frontend](#⚙️-Frontend:)
-
 ## 📜 Description:
 
 This is a simple music player app with backend and frontend. The backend is written in Java-Spring using Microservices architecture and the frontend is written in Flutter. The backend is deployed on private server. You can use provided executables/apk to run the app and test it.
@@ -46,7 +32,7 @@ If you use 'nodeps' version of build scripts, you don't need Java and Maven. But
 
 On the root of the repository:
 
--   Run either `build-win-deps.ps1` or `build-win-nodeps.ps1` according to your build preference. See [This note](#❗️-note-about-optional-requirements) for more info.
+-   Run either `build-win-deps.ps1` or `build-win-nodeps.ps1` according to your build preference. See [This note](https://github.com/AlfaSquaD/dir_music_project#%EF%B8%8F-note-about-optional-requirements) for more info.
 
 -   Run `docker-compose up` to start the backend.
 
@@ -54,13 +40,13 @@ On the root of the repository:
 
 On the root of the repository:
 
--   Use either `make build` or `make build-nodeps` according to your build preference. See [This note](#❗️-note-about-optional-requirements) for more info.
+-   Use either `make build` or `make build-nodeps` according to your build preference. See [This note](https://github.com/AlfaSquaD/dir_music_project#%EF%B8%8F-note-about-optional-requirements) for more info.
 
 -   Run `docker-compose up` or `make up` to start the backend.
 
 ### ⚙️ Frontend:
 
-On the root of the [client directory](./clients/dir_music_client/):
+On the root of the client directory `./clients/dir_music_client/`:
 
 -   Run `flutter pub get` to get all dependencies.
 
