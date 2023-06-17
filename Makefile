@@ -25,7 +25,7 @@ logs:
 	docker-compose logs -f
 
 init:
-	git submodule update --init --remote
+	git submodule update --init --recursive --remote
 
 pull:
 	git submodule update --remote --recursive

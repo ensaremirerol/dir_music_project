@@ -26,6 +26,12 @@ If you use 'nodeps' version of build scripts, you don't need Java and Maven. But
 
 ## ⚙️ Build:
 
+### ❗️❗️❗️ WARNING ❗️❗️❗️
+
+Cloning this repository does not mean you have cloned all required submodules. You need to clone them manually. You can use `git submodule update --init --recursive --remote` command or `make init` command on linux/mac to clone all submodules.
+
+Skipping this step will result in build errors because of missing files.
+
 ### ⚙️ Backend:
 
 #### For _windows_:

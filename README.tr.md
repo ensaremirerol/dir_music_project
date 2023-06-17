@@ -26,6 +26,12 @@ Eğer ki, yükleme dosyalarının `nodeps` versiyonunu kullanırsanız Java ve M
 
 ## ⚙️ Derleme:
 
+### ❗️❗️❗️ UYARI ❗️❗️❗️
+
+Bu depoyu klonladığınız zaman gerekli tüm dosyalar klonlanmaz. Bu nedenle, bu depoyu klonladıktan sonra, `git submodule update --init --remote` yada linux/mac için `make init` komutunu çalıştırarak gerekli dosyaları klonlayabilirsiniz.
+
+Bu adım atlandığı takdirde, sunucu ve istemci dosyaları bulunamayacaktır. Dolayısıyla, derleme işlemi başarısız olacaktır.
+
 ### ⚙️ Sunucu:
 
 #### _Windows_ için:
