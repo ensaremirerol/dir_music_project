@@ -4,17 +4,17 @@
 
 ## 📝 Table of Contents:
 
-[Description](#-📜-Description:)
+[Description](#📜-Description:)
 
-[Requirements](#-📦-Requirements:)
+[Requirements](#📦-Requirements:)
 
--   [Backend](#-📋-Backend:)
--   [Frontend](#-📋-Frontend:)
+-   [Backend](#📋-Backend:)
+-   [Frontend](#📋-Frontend:)
 
-[Build](#-⚙️-Build:)
+[Build](#⚙️-Build:)
 
--   [Backend](#-⚙️-Backend:)
--   [Frontend](#-⚙️-Frontend:)
+-   [Backend](#⚙️-Backend:)
+-   [Frontend](#⚙️-Frontend:)
 
 ## 📜 Description:
 
@@ -46,7 +46,7 @@ If you use 'nodeps' version of build scripts, you don't need Java and Maven. But
 
 On the root of the repository:
 
--   Run either `build-win-deps.ps1` or `build-win-nodeps.ps1` according to your build preference. See [This note](#-❗️-note-about-optional-requirements) for more info.
+-   Run either `build-win-deps.ps1` or `build-win-nodeps.ps1` according to your build preference. See [This note](#❗️-note-about-optional-requirements) for more info.
 
 -   Run `docker-compose up` to start the backend.
 
@@ -54,7 +54,7 @@ On the root of the repository:
 
 On the root of the repository:
 
--   Use either `make build` or `make build-nodeps` according to your build preference. See [This note](#-❗️-note-about-optional-requirements) for more info.
+-   Use either `make build` or `make build-nodeps` according to your build preference. See [This note](#❗️-note-about-optional-requirements) for more info.
 
 -   Run `docker-compose up` or `make up` to start the backend.
 
