@@ -4,19 +4,19 @@
 
 ## 📜 İçindekiler:
 
-[Açıklama](#📜-Açıklama:)
+[Açıklama](#-📜-Açıklama:)
 
-[Gereksinimler](#📦-Gereksinimler:)
+[Gereksinimler](#-📦-Gereksinimler:)
 
--   [Sunucu](#📋-Sunucu:)
+-   [Sunucu](#-📋-Sunucu:)
 
--   [Ön Yüz](#📋-Ön-Yüz:)
+-   [Ön Yüz](#-📋-Ön-Yüz:)
 
-[Derleme](#⚙️-Derleme:)
+[Derleme](#-⚙️-Derleme:)
 
--   [Sunucu](#⚙️-Sunucu:)
+-   [Sunucu](#-⚙️-Sunucu:)
 
--   [Ön Yüz](#⚙️-Ön-Yüz:)
+-   [Ön Yüz](#-⚙️-Ön-Yüz:)
 
 ## 📜 Açıklama:
 
@@ -48,7 +48,7 @@ Eğer ki, yükleme dosyalarının `nodeps` versiyonunu kullanırsanız Java ve M
 
 Proje kök dizininde:
 
--   `build-win-deps.ps1` veya `build-win-nodeps.ps1` dosyalarından birini çalıştırın. Hangisini çalıştıracağınızı seçmek için [bu notu](#❗️-İsteğe-bağlı-gereksinimler-hakkında-not) okuyun.
+-   `build-win-deps.ps1` veya `build-win-nodeps.ps1` dosyalarından birini çalıştırın. Hangisini çalıştıracağınızı seçmek için [bu notu](#-❗️-İsteğe-bağlı-gereksinimler-hakkında-not) okuyun.
 
 -   `docker-compose up` komutunu çalıştırarak sunucuyu başlatın.
 
@@ -56,7 +56,7 @@ Proje kök dizininde:
 
 Proje kök dizininde:
 
--   `make build` veya `make build-nodeps` komutlarını çalıştırın. Hangisini çalıştıracağınızı seçmek için [bu notu](#❗️-İsteğe-bağlı-gereksinimler-hakkında-not) okuyun.
+-   `make build` veya `make build-nodeps` komutlarını çalıştırın. Hangisini çalıştıracağınızı seçmek için [bu notu](#-❗️-İsteğe-bağlı-gereksinimler-hakkında-not) okuyun.
 
 -   `docker-compose up` veya `make up` komutunu çalıştırarak sunucuyu başlatın.
 
