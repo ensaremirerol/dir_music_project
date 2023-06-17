@@ -2,22 +2,6 @@
 
 [Türkçe](./README.tr.md) | [English](./README.md)
 
-## 📜 İçindekiler:
-
-[Açıklama](#📜-Açıklama:)
-
-[Gereksinimler](#📦-Gereksinimler:)
-
--   [Sunucu](#📋-Sunucu:)
-
--   [Ön Yüz](#📋-Ön-Yüz:)
-
-[Derleme](#⚙️-Derleme:)
-
--   [Sunucu](#⚙️-Sunucu:)
-
--   [Ön Yüz](#⚙️-Ön-Yüz:)
-
 ## 📜 Açıklama:
 
 Bu uygulama, sunucu ve istemci olmak üzere iki bileşenden oluşan basit bir müzik çalar uygulamasıdır. Sunucu kısmı Java-Spring ile Mikro Servis mimarisi kullanılarak yazılmıştır. Ön yüz kısmı ise Flutter ile yazılmıştır. Sunucu kısmı özel bir sunucuda çalıştırılmaktadır. Uygulamayı çalıştırmak ve test etmek için sağlanan çalıştırılabilir dosyaları/apk'ları kullanabilirsiniz.
