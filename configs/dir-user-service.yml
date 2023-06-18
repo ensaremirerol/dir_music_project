@@ -1,27 +1,29 @@
 spring:
-  application:
-    name: dir-user-service
-  datasource:
-    password: root
-    username: root
-    url: jdbc:mysql://mysql:3306/users
-  jpa:
-    hibernate:
-      ddl-auto: update
-  security:
-    user:
-      password: dir
-      name: dir
+    application:
+        name: dir-user-service
+    datasource:
+        password: root
+        username: root
+        url: jdbc:mysql://mysql:3306/users
+    jpa:
+        hibernate:
+            ddl-auto: update
+    security:
+        user:
+            password: dir
+            name: dir
+    jackson:
+        serialization:
+            write-dates-as-timestamps: false
 
 eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://eureka:8761/eureka/
-    register-with-eureka: true
-    fetch-registry: true
-
+    instance:
+        prefer-ip-address: true
+    client:
+        service-url:
+            defaultZone: http://eureka:8761/eureka/
+        register-with-eureka: true
+        fetch-registry: true
 
 server:
-  port: 8080
+    port: 8080
