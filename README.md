@@ -38,6 +38,8 @@ Skipping this step will result in build errors because of missing files.
 
 On the root of the repository:
 
+-   Run `docker network create dir_music_network` to create a network for the backend.
+
 -   Run either `build-win-deps.ps1` or `build-win-nodeps.ps1` according to your build preference. See [This note](https://github.com/AlfaSquaD/dir_music_project#%EF%B8%8F-note-about-optional-requirements) for more info.
 
 -   Run `docker-compose up` to start the backend.

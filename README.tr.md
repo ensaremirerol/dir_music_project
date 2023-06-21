@@ -38,6 +38,8 @@ Bu adım atlandığı takdirde, sunucu ve istemci dosyaları bulunamayacaktır. 
 
 Proje kök dizininde:
 
+-   `docker network create dir_music_network` komutunu çalıştırın.
+
 -   `build-win-deps.ps1` veya `build-win-nodeps.ps1` dosyalarından birini çalıştırın. Hangisini çalıştıracağınızı seçmek için [bu notu](https://github.com/AlfaSquaD/dir_music_project/blob/main/README.tr.md#%EF%B8%8F-i%CC%87ste%C4%9Fe-ba%C4%9Fl%C4%B1-gereksinimler-hakk%C4%B1nda-not) okuyun.
 
 -   `docker-compose up` komutunu çalıştırarak sunucuyu başlatın.

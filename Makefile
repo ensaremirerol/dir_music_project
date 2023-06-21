@@ -13,6 +13,7 @@ build-nodeps:
 	docker-compose build
 
 up:
+	docker network create dir_music_network
 	docker-compose up -d
 
 down:
